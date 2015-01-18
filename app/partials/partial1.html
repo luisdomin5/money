@@ -1,0 +1,18 @@
+<p>This is the partial for view 1.</p>
+
+        <div ng-repeat="category in model.categories">
+            <h3>{{category.name}}</h3>
+            <ul>
+                <li ng-repeat="subcat in category.subs">{{subcat.name}}</li>
+            </ul>
+        </div>
+
+        <div ng-repeat="transaction in model.transactions">
+            <span>{{transaction.date | date : 'dd/MM/yyyy' }}</span>
+            <span>{{transaction.name}}</span>
+        </div>
+
+
+
+        <new-transaction ng-show="model.isAdding" add="addTransaction(transaction)"></new-transaction>
+        <button ng-show="!model.isAdding" ng-click="beginAddTransaction($event)">New Transaction</button>
